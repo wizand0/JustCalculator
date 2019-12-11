@@ -17,7 +17,7 @@ public class Calculator {
 
     private JButton button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
 
-    private JButton buttonADD, buttonSUB, buttonDIV, buttonMULTI, buttonEquals, buttonClear;
+    private JButton buttonADD, buttonSUB, buttonDIV, buttonMULTI, buttonEquals, buttonClear, buttonMPlus, buttonMMinus, buttonMC, buttonMR;
 
     private static JTextField display = new JTextField(30);
 
@@ -55,9 +55,17 @@ public class Calculator {
         buttonEquals = new JButton("=");
         buttonDIV = new JButton("/");
         buttonClear = new JButton("C");
+        buttonMPlus = new JButton("M+");
+        buttonMMinus = new JButton("M-");
+        buttonMC = new JButton("MC");
+        buttonMR = new JButton("MR");
 
-        GridLayout l2 = new GridLayout(4,4);
+        GridLayout l2 = new GridLayout(5,4);
         buttonPanel.setLayout(l2);
+        buttonPanel.add(buttonMPlus);
+        buttonPanel.add(buttonMMinus);
+        buttonPanel.add(buttonMC);
+        buttonPanel.add(buttonMR);
         buttonPanel.add(button7);
         buttonPanel.add(button8);
         buttonPanel.add(button9);
@@ -98,14 +106,14 @@ public class Calculator {
         buttonEquals.addActionListener(listener2);
 
         dim = Toolkit.getDefaultToolkit().getScreenSize();
-        JFrame window = new JFrame("Calculator");
+        JFrame window = new JFrame("JustCalculator");
         window.setResizable(false);
         window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         window.setContentPane(calculatorPanel);
 
         window.pack();
-
+//        window.setOpacity((float) 0.5);
         window.setVisible(true);
         window.setLocation((int)(dim.getWidth()/2-window.getWidth()/2), (int)(dim.getHeight()/2-window.getHeight()/2));
     }
